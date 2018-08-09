@@ -4,23 +4,23 @@ import com.kodilla.testing.calculator.Calculator;
 
 public class TestingMain {
     public static void main(String[] args){
-        final int a = 2, b = 2;
+
         Calculator myCalculator = new Calculator();
 
-        int result = myCalculator.add(a, b);
+        int resultAdd = myCalculator.add(2, 2);
 
-        if (result == (a+b) ) {
+        if (resultAdd == (4) ) {
             System.out.println("Test dodawania poprawny");
+        } else {
+            System.out.println("Test dodawania niepoprawny");
         }
-        else System.out.println("Test dodawania niepoprawny");
 
-        result = myCalculator.subtract(a, b);
+        int resultSub = myCalculator.subtract(2, 2);
 
-        if (result == (a-b) ) {
+        if (resultSub == (0) ) {
             System.out.println("Test odejmowania poprawny");
+        } else {
+            System.out.println("Test odejmowania niepoprawny");
         }
-        else System.out.println("Test odejmowania niepoprawny");
-
-
     }
 }
