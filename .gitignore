@@ -1,8 +1,8 @@
 .gradle
-/build/
+#match directories build, anywhere in the repository.
+**/build
 !gradle/wrapper/gradle-wrapper.jar
-/kodilla-testing/build/
-/kodilla-testing/out/
+
 
 
 ### STS ###
@@ -19,7 +19,7 @@
 *.iws
 *.iml
 *.ipr
-/out/
+**/out
 
 
 ### NetBeans ###

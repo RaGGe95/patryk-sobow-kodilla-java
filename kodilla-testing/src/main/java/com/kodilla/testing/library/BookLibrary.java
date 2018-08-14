@@ -10,7 +10,7 @@ public class BookLibrary {
         this.libraryDatabase = libraryDatabase;
     }
 
-    public List<Book> listBooksWithCondition_FROM_CLASS_BookLibrary(String titleFragment) {
+    public List<Book> listBooksWithConditionBookLibrary(String titleFragment) {
 
         List<Book> bookList = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class BookLibrary {
     }
 
 
-    public List<Book> listBooksInHandsOf_FROM_CLASS_BookLibrary(LibraryUser libraryUser) {
+    public List<Book> listBooksInHandsOfBookLibrary(LibraryUser libraryUser) {
 
         List<Book> bookList = new ArrayList<>();
 
@@ -36,4 +36,10 @@ public class BookLibrary {
 
         return resultList;
     }
+
+    boolean rentABook_FROM_CLASS_BookLibrary(LibraryUser libraryUser, Book book) {
+
+        return false;
+    }
+
 }

@@ -1,6 +1,5 @@
 package com.kodilla.testing.forum.statistics;
 
-import com.sun.org.glassfish.external.statistics.Statistic;
 
 import java.util.List;
 

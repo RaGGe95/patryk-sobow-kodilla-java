@@ -1,5 +1,6 @@
 package com.kodilla.testing.library;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,6 +11,14 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 public class BookDirectoryTestSuite {
+    private static int testCounter = 0;
+
+    @Before
+    public void beforeEverytest() {
+        testCounter++;
+        System.out.println("Preparing to execute test number: " + testCounter);
+    }
+
     @Test
     public void testListBooksWithConditionsReturnList() {
         //Given
@@ -26,9 +35,9 @@ public class BookDirectoryTestSuite {
         resultList.add(book3);
         resultList.add(book4);
 
-        when(bookLibrary.listBooksWithCondition_FROM_CLASS_BookLibrary("Secret")).thenReturn(resultList);
+        when(bookLibrary.listBooksWithConditionBookLibrary("Secret")).thenReturn(resultList);
         //When
-        List<Book> theListOfBooks = bookLibrary.listBooksWithCondition_FROM_CLASS_BookLibrary("Secret");
+        List<Book> theListOfBooks = bookLibrary.listBooksWithConditionBookLibrary("Secret");
 
         //Then
         assertEquals(4,theListOfBooks.size() );
@@ -53,9 +62,9 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksWithCondition("40 Books"))
                 .thenReturn(resultListOfBooks40);
         //When
-        List<Book> theListOfBooks0 = bookLibrary.listBooksWithCondition_FROM_CLASS_BookLibrary("Zero Books");
-        List<Book> theListOfBooks15 = bookLibrary.listBooksWithCondition_FROM_CLASS_BookLibrary("15 Books");
-        List<Book> theListOfBooks40 = bookLibrary.listBooksWithCondition_FROM_CLASS_BookLibrary("40 Books");
+        List<Book> theListOfBooks0 = bookLibrary.listBooksWithConditionBookLibrary("Zero Books");
+        List<Book> theListOfBooks15 = bookLibrary.listBooksWithConditionBookLibrary("15 Books");
+        List<Book> theListOfBooks40 = bookLibrary.listBooksWithConditionBookLibrary("40 Books");
 
         //Then
         assertEquals(0,theListOfBooks0.size() );
@@ -85,11 +94,12 @@ public class BookDirectoryTestSuite {
                 .thenReturn(resultList);
 
         // When
-        List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition_FROM_CLASS_BookLibrary("An");
+        List<Book> theListOfBooks = bookLibrary.listBooksWithConditionBookLibrary("An");
 
         // Then
-        assertEquals(0, theListOfBooks10.size());
+        assertEquals(0, theListOfBooks.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
+
     }
 
 
@@ -120,9 +130,9 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser3))
                 .thenReturn(resultListFiveBooks);
         // When
-        List<Book> theListOfUserBooks1 = bookLibrary.listBooksInHandsOf_FROM_CLASS_BookLibrary(libraryUser1);
-        List<Book> theListOfUserBooks2 = bookLibrary.listBooksInHandsOf_FROM_CLASS_BookLibrary(libraryUser2);
-        List<Book> theListOfUserBooks3 = bookLibrary.listBooksInHandsOf_FROM_CLASS_BookLibrary(libraryUser3);
+        List<Book> theListOfUserBooks1 = bookLibrary.listBooksInHandsOfBookLibrary(libraryUser1);
+        List<Book> theListOfUserBooks2 = bookLibrary.listBooksInHandsOfBookLibrary(libraryUser2);
+        List<Book> theListOfUserBooks3 = bookLibrary.listBooksInHandsOfBookLibrary(libraryUser3);
         // Then
 
         assertEquals(0, theListOfUserBooks1.size());
