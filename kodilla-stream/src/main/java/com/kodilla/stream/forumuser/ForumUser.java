@@ -1,6 +1,7 @@
 package com.kodilla.stream.forumuser;
 
 import java.time.LocalDate;
+import java.time.Year;
 
 public class ForumUser {
     private final int ID;
@@ -27,8 +28,22 @@ public class ForumUser {
                 && this.getBirthDate().getDayOfMonth() > LocalDate.now().getDayOfMonth());
     }
 
+    public boolean isYoungerThan20Version2() {
+        LocalDate twentyYearsEarlier = LocalDate.now().minusYears(20);
+        LocalDate birthDate = this.getBirthDate();
+
+        int result = birthDate.compareTo(twentyYearsEarlier);
+
+        if (result < 0)
+            return false;
+        else
+            return true;
+    }
+
     /*
                 1998.08.15
+                1996
+
                 2018.08.15
                  */
 
