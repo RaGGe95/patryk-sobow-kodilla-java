@@ -8,7 +8,6 @@ public final class NumbersGenerator {
                 .limit(max)
                 .filter(n -> n % 2 == 0)
                 .forEach(System.out::println);
-                // Dlaczego nie działa:
-                // .forEach(System.out.println);
+
     }
 }
