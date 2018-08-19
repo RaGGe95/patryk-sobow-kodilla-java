@@ -1,8 +1,5 @@
 .gradle
-#match directories build, anywhere in the repository.
-**/build
 !gradle/wrapper/gradle-wrapper.jar
-
 
 
 ### STS ###
@@ -19,7 +16,10 @@
 *.iws
 *.iml
 *.ipr
+
+#match directories anywhere in the repository.
 **/out
+**/build
 
 
 ### NetBeans ###
