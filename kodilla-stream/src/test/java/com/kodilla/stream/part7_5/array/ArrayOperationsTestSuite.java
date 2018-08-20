@@ -17,11 +17,28 @@ public class ArrayOperationsTestSuite {
         long sum = Arrays.stream(testArray)
                 .sum();
 
-        System.out.println("\nSuma liczb w tablicy = " + sum + "\nIlosc liczb w tablicy = " + testArray.length);
+        System.out.println("\nSuma liczb w tablicy = " + sum + "\nRozmiar tablicy = " + testArray.length);
 
         //Then
         Assert.assertEquals(4.5, result, 0);
     }
+
+    @Test
+    public void testGetAverageVersion2EmptyArray(){
+        //Given
+        int[] testEmptyArray = new int[] {};
+        //When
+        double result = ArrayOperations.getAverageVersion2(testEmptyArray);
+
+        long sum = Arrays.stream(testEmptyArray)
+                .sum();
+
+        System.out.println("\nSuma liczb w tablicy = " + sum + "\nRozmiar tablicy = " + testEmptyArray.length);
+
+        //Then
+        Assert.assertEquals(0, result, 0);
+    }
+
 
     @Test
     public void exampleStaticArrayStream(){

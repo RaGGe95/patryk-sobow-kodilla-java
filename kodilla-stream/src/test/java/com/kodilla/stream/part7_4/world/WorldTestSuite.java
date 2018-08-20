@@ -10,13 +10,13 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity(){
         //Given
-        Country poland = new Country(new BigDecimal("40000000")); // 40 mln
-        Country german = new Country(new BigDecimal("30000000")); // 30 mln
-        Country france = new Country(new BigDecimal("30000000")); // 30 mln
-        Country unitedKingdom = new Country(new BigDecimal("30000000")); // 30 mln
-        Country netherlands = new Country(new BigDecimal("20000000")); // 20 mln
+        Country poland = new Country(new BigDecimal(40_000_000));
+        Country german = new Country(new BigDecimal(30_000_000));
+        Country france = new Country(new BigDecimal(30_000_000));
+        Country unitedKingdom = new Country(new BigDecimal(30_000_000));
+        Country netherlands = new Country(new BigDecimal(20_000_000));
 
-        Country egypt = new Country(new BigDecimal("100000000")); // 100 mln
+        Country egypt = new Country(new BigDecimal(100_000_000));
 
         Continent europe = new Continent(poland, german, france, unitedKingdom, netherlands);
         Continent africa = new Continent(egypt);
@@ -27,6 +27,6 @@ public class WorldTestSuite {
         BigDecimal result = world.getPeopleQuantity();
 
         //Then
-        Assert.assertEquals(new BigDecimal("250000000"), result);
+        Assert.assertEquals(new BigDecimal(250_000_000), result);
     }
 }
