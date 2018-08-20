@@ -39,6 +39,13 @@ public class ForumUser {
             return true;
     }
 
+    public boolean isYoungerThan20Version3() {
+        LocalDate twentyYearsEarlier = LocalDate.now().minusYears(20);
+        LocalDate birthDate = this.getBirthDate();
+
+        return twentyYearsEarlier.isBefore(birthDate);
+    }
+
 
     public int getID() {
         return ID;

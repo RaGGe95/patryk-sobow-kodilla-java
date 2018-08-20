@@ -9,10 +9,21 @@ public class ArrayOperationsTestSuite {
 
     @Test
     public void testGetAverage(){
+
+        /*
+        Ten test nie przejdzie dla pustej tablicy!!
+         */
+
         //Given
+        //int[] testEmptyArray = new int[] {};
         int[] testArray = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
         //When
-        double result = ArrayOperations.getAverage(testArray);
+       // System.out.println("Pusta tablica");
+        //double resultEmpty = ArrayOperations.getAverage(testEmptyArray);
+
+        System.out.println("\nWypelniona tablica ");
+        double resultArray = ArrayOperations.getAverage(testArray);
 
         long sum = Arrays.stream(testArray)
                 .sum();
@@ -20,23 +31,52 @@ public class ArrayOperationsTestSuite {
         System.out.println("\nSuma liczb w tablicy = " + sum + "\nRozmiar tablicy = " + testArray.length);
 
         //Then
-        Assert.assertEquals(4.5, result, 0);
+        // Assert.assertEquals(0, resultEmpty, 0);
+        Assert.assertEquals(4.5, resultArray, 0);
     }
 
     @Test
     public void testGetAverageVersion2EmptyArray(){
         //Given
         int[] testEmptyArray = new int[] {};
-        //When
-        double result = ArrayOperations.getAverageVersion2(testEmptyArray);
+        int[] testArray = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-        long sum = Arrays.stream(testEmptyArray)
+        //When
+        System.out.println("Pusta tablica");
+        double resultEmpty = ArrayOperations.getAverageVersion2(testEmptyArray);
+        System.out.println("\nWypelniona tablica ");
+        double resultArray = ArrayOperations.getAverageVersion2(testArray);
+
+        long sum = Arrays.stream(testArray)
                 .sum();
 
-        System.out.println("\nSuma liczb w tablicy = " + sum + "\nRozmiar tablicy = " + testEmptyArray.length);
+        System.out.println("\nSuma liczb w tablicy = " + sum + "\nRozmiar tablicy = " + testArray.length);
 
         //Then
-        Assert.assertEquals(0, result, 0);
+        Assert.assertEquals(0, resultEmpty, 0);
+        Assert.assertEquals(4.5, resultArray, 0);
+    }
+
+    @Test
+    public void testGetAverageVersion3(){
+        //Given
+        int[] testEmptyArray = new int[] {};
+        int[] testArray = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        //When
+        System.out.println("Pusta tablica");
+        double resultEmpty = ArrayOperations.getAverageVersion3(testEmptyArray);
+        System.out.println("\nWypelniona tablica ");
+        double resultArray = ArrayOperations.getAverageVersion3(testArray);
+
+        long sum = Arrays.stream(testArray)
+                .sum();
+
+        System.out.println("\nSuma liczb w tablicy = " + sum + "\nRozmiar tablicy = " + testArray.length);
+
+        //Then
+        Assert.assertEquals(0, resultEmpty, 0);
+        Assert.assertEquals(4.5, resultArray, 0);
     }
 
 
