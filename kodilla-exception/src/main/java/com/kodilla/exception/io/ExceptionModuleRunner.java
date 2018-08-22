@@ -1,8 +1,5 @@
-package com.kodilla.exception.main;
+package com.kodilla.exception.io;
 
-import com.kodilla.exception.io.FileReader;
-import com.kodilla.exception.io.FileReaderException;
-import com.kodilla.exception.io.FileReaderWithoutHandling;
 
 public class ExceptionModuleRunner {
 
