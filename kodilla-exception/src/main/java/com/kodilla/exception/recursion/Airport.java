@@ -1,4 +1,4 @@
-package com.kodilla.exception.test;
+package com.kodilla.exception.recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
