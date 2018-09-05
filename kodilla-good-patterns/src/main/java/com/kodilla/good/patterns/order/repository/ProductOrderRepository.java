@@ -1,4 +1,7 @@
-package com.kodilla.good.patterns.orderService;
+package com.kodilla.good.patterns.order.repository;
+
+import com.kodilla.good.patterns.order.model.Order;
+import com.kodilla.good.patterns.order.model.User;
 
 import java.util.List;
 

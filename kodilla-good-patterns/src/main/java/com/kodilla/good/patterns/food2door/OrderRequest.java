@@ -5,20 +5,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class OrderRequest {
-    private List<Product> productList = new ArrayList<>();
+
+    private List<Product> products = new ArrayList<>();
 
     public OrderRequest(Product... products) {
-        this.productList.addAll(Arrays.asList(products));
+        this.products.addAll(Arrays.asList(products));
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<Product> getProducts() {
+        return new ArrayList<>(products);
     }
 
     @Override
     public String toString() {
         return "OrderRequest{" +
-                "productList=" + productList +
+                "products=" + products +
                 '}';
     }
 }

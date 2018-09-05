@@ -11,28 +11,25 @@ package com.kodilla.exception.recursion;
 
 
 public class FlightSeeker {
-    private boolean searchResult = false;
 
-    public FlightSeeker() {}
+    public FlightSeeker() {
+    }
 
 
     // Łatwiejszy algorytm. dla drzewa.
     public boolean isFlightPossibleForTreeStructure(Airport start, Airport finish) {
-        searchResult = false;
+        if (start.getConnections() == null) {
+            return false;
+        }
 
         if (start.getConnections().contains(finish)) {
-            searchResult = true;
-            return searchResult;
+            return true;
         }
 
         for (Airport each : start.getConnections()) {
-            if (searchResult) break;
-
-            if (each.getConnections().size() != 0) {
-                isFlightPossibleForTreeStructure(each, finish);
-            }
+            return isFlightPossibleForTreeStructure(each, finish);
         }
-        return searchResult;
+        return false;
     }
 
 

@@ -1,5 +1,7 @@
-package com.kodilla.good.patterns.orderService;
+package com.kodilla.good.patterns.order.serivce;
 
+
+import com.kodilla.good.patterns.order.model.User;
 
 public class MailService implements InformationService {
 
