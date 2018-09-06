@@ -1,4 +1,9 @@
-package com.kodilla.good.patterns.rentalservice;
+package com.kodilla.good.patterns.rental.service;
+
+import com.kodilla.good.patterns.rental.dto.RentalDto;
+import com.kodilla.good.patterns.rental.model.RentRequest;
+import com.kodilla.good.patterns.rental.model.User;
+import com.kodilla.good.patterns.rental.repository.RentalRepository;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,6 @@
-package com.kodilla.good.patterns.orderService;
+package com.kodilla.good.patterns.order.dto;
+
+import com.kodilla.good.patterns.order.model.User;
 
 public class OrderDto {
     private User user;

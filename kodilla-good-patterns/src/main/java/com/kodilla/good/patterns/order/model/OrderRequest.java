@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.orderService;
+package com.kodilla.good.patterns.order.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +18,6 @@ public class OrderRequest {
     }
 
     public List<Order> getListOrder() {
-        return listOrder;
+        return new ArrayList<>(listOrder);
     }
 }

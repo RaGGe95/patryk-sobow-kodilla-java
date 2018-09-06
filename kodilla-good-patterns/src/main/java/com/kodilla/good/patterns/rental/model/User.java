@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.rentalservice;
+package com.kodilla.good.patterns.rental.model;
 
 public class User {
     private String name;

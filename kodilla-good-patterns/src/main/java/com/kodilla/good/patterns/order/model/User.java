@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.orderService;
+package com.kodilla.good.patterns.order.model;
 
 public class User {
     private String name;

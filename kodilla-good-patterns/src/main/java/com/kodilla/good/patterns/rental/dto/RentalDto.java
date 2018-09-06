@@ -1,4 +1,6 @@
-package com.kodilla.good.patterns.rentalservice;
+package com.kodilla.good.patterns.rental.dto;
+
+import com.kodilla.good.patterns.rental.model.User;
 
 public class RentalDto {
     private User user;
