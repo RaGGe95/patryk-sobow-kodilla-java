@@ -1,11 +1,17 @@
 package com.kodilla.good.patterns.food2door;
 
+import com.kodilla.good.patterns.food2door.service.*;
+
+import java.util.List;
+
 public class Application {
     public static void main(String... args) {
-        OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
-        OrderRequest orderRequest = orderRequestRetriever.retrieve();
+        final OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
+        final OrderRequest orderRequest = orderRequestRetriever.retrieve();
 
-        OrderProcessor orderProcessor = new OrderProcessor(new HealthyShop());
+        final List<ProductProvider> productProviders = ProductProvidersConfiguration.buildProductProviders();
+
+        final OrderProcessor orderProcessor = new OrderProcessor(productProviders);
         orderProcessor.orderProducts(orderRequest);
     }
 }
