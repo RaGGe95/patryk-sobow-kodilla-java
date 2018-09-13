@@ -2,6 +2,7 @@ package com.kodilla.good.patterns.flights;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Application {
 
@@ -35,5 +36,9 @@ public class Application {
                 .forEach(airports -> System.out.print(airports + ", "));
 
 
+
+        System.out.println("\nLista wszystkich możliwych połączeń z wrocławia: ");
+        Set<Airport> resultSet = flightSeeker.findEveryConnectionsFrom(wroclaw);
+        System.out.println(resultSet);
     }
 }

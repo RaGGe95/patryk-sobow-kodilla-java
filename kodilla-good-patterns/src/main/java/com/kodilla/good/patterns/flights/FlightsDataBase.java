@@ -18,8 +18,8 @@ public class FlightsDataBase {
         Airport london = new Airport("Londyn");
         Airport paris = new Airport("Paryż");
 
-        airportsMap.put(wroclaw,    Arrays.asList(warsaw, poznan, krakow, berlin));
-        airportsMap.put(gdansk,     Arrays.asList(warsaw, poznan, krakow));
+        airportsMap.put(wroclaw,    Arrays.asList(warsaw, poznan, berlin));
+        airportsMap.put(gdansk,     Arrays.asList(poznan, krakow));
         airportsMap.put(krakow,     Arrays.asList(wroclaw, berlin));
         airportsMap.put(warsaw,     Arrays.asList(berlin, london));
         airportsMap.put(london,     Arrays.asList(paris));

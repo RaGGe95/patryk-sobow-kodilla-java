@@ -1,24 +1,19 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FlightSeeker {
     private final Map<Airport, List<Airport>> airportsMap;
+    private Set<Airport> resultSet = new HashSet<>();
 
     public FlightSeeker(Map<Airport, List<Airport>> airportsMap) {
         this.airportsMap = airportsMap;
     }
 
-    //PYTANIE czy da się to jakoś prościej ? tzn. po linijce 18 odrazu zwrócić tą liste zamiast robić flatmap?
+
     public List<Airport> findDirectConnectionsFrom(Airport airport){
-         return airportsMap.entrySet().stream()
-                .filter(entry -> entry.getKey().equals(airport))
-                .map(entry -> entry.getValue())
-                .flatMap(airportsList -> airportsList.stream())
-                .collect(Collectors.toList());
+         return airportsMap.get(airport);
     }
 
     public List<Airport> findDirectConnectionsTo(Airport airport){
@@ -35,4 +30,21 @@ public class FlightSeeker {
 
         return airportsMap;
     }
+
+    //Znajduje każdy element w strukturze drzewa
+    public Set<Airport> findEveryConnectionsFrom(Airport airport){
+        if (airportsMap.get(airport) == null || airportsMap.get(airport).size() == 0) {
+            return null;
+        }
+
+
+        for (Airport each : airportsMap.get(airport)) {
+            resultSet.add(each);
+
+            findEveryConnectionsFrom(each);
+        }
+        return resultSet;
+    }
+
+
 }
