@@ -5,47 +5,56 @@ import com.kodilla.patterns.prototype.Prototype;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class Library extends Prototype {
+public final class Library<T extends copyInterface<T>> extends Prototype<Library> {
     private String name;
-    private Set<Book> books = new HashSet<>();
+    private Set<T> objects = new HashSet<>();
 
-    public Library(final String name) {
+    Library(final String name) {
         this.name = name;
+    }
+
+    void add(T object){
+        objects.add(object);
+    }
+    void remove(Book book) {
+        objects.remove(book);
     }
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public Set<Book> getBooks() {
-        return books;
+    Set<T> getObjects() {
+        return new HashSet<>(objects);
     }
 
     @Override
     public String toString() {
         String s = "Library{" + name + '}' + '\n';
-        for(Book book : books) {
-            s = s + book.toString() + '\n';
+        for(T object : objects) {
+            s = s + object.toString() + '\n';
         }
         return s;
     }
 
-    public Library shallowCopy() throws CloneNotSupportedException{
-        return (Library)super.clone();
+    Library shallowCopy() throws CloneNotSupportedException{
+        return super.clone();
     }
 
-    public Library deepCopy() throws CloneNotSupportedException{
-        Library clonedLibrary = (Library)super.clone();
-        clonedLibrary.name = name;
-        clonedLibrary.books = new HashSet<>();
+    Library deepCopy() throws CloneNotSupportedException{
+        Library clonedLibrary = super.clone();
 
-        for(Book book : books){
-            clonedLibrary.books.add(new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate()));
+        clonedLibrary.name = this.name;
+        clonedLibrary.objects = new HashSet<>();
+
+        for(T object : objects){
+            clonedLibrary.add(object.deepCopy());
         }
         return clonedLibrary;
     }
+
+
 }
