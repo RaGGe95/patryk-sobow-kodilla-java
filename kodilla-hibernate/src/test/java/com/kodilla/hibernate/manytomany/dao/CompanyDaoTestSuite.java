@@ -9,11 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
+import java.util.Arrays;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -60,4 +67,65 @@ public class CompanyDaoTestSuite {
         //    //do nothing
         //}
     }
+
+    @Test
+    public void testEmployeeQuery(){
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+        employeeDao.save(Arrays.asList(johnSmith,stephanieClarckson,lindaKovalsky));
+
+        //When
+        List<Employee> readEmployee = employeeDao.findByLastName("Smith");
+
+        //Then
+        Assert.assertEquals(1, readEmployee.size());
+
+        //Clean
+        employeeDao.deleteAll();
+
+    }
+
+    @Test
+    public void testCompanyNativeQuery(){
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+        companyDao.save(Arrays.asList(softwareMachine, dataMaesters, greyMatter));
+
+        //When
+        List<Company> readCompany = companyDao.findCompanyByThreeFirstLetters("Dat");
+
+        //Then
+        Assert.assertEquals(1, readCompany.size());
+        //Clean
+        companyDao.deleteAll();
+    }
+
+
+    @Test
+    public void testCompanyNativeQueryVersionTwo(){
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+        companyDao.save(Arrays.asList(softwareMachine, dataMaesters, greyMatter));
+
+        //When
+        List<Company> readCompany = companyDao.findCompanyByPartOfName("Dat");
+
+        //Then
+        Assert.assertEquals(1, readCompany.size());
+        //Clean
+        companyDao.deleteAll();
+    }
+
+    /*
+    NAD KLASĄ TESTOWĄ DLA BAZY DANYCH TRZEBA DODAWAĆ @TRANSACTIONAL !!
+    wtedy nie trzeba sprzątać
+     */
+
+
 }

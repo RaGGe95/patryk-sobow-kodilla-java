@@ -4,6 +4,18 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+@NamedNativeQueries({
+    @NamedNativeQuery(
+            name = "Company.findCompanyByThreeFirstLetters",
+            query = "SELECT * FROM COMPANIES WHERE :PIECE_OF_NAME = SUBSTRING(COMPANY_NAME, 1, 3)",
+            resultClass = Company.class
+    ),
+    @NamedNativeQuery(
+            name = "Company.findCompanyByPartOfName",
+            query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT(:BEGINSWITH, '%')",
+            resultClass = Company.class
+    )
+})
 
 @Entity
 @Table(name = "COMPANIES")
