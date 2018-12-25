@@ -11,11 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class TaskListDaoTestSuite {
     @Autowired
     private TaskListDao taskListDao;
@@ -82,7 +84,7 @@ public class TaskListDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
-        //taskListDao.delete(id);
+        taskListDao.delete(id);
     }
 
     @Test
@@ -127,7 +129,7 @@ public class TaskListDaoTestSuite {
         try {
             Assert.assertEquals(1, longTasks.size());
             Assert.assertEquals(3, shortTasks.size());
-            Assert.assertEquals(3, enoughTimeTasks.size());
+            Assert.assertEquals(0, enoughTimeTasks.size());
             Assert.assertEquals(2, durationLongerThanTasks.size());
         } finally {
             //CleanUp

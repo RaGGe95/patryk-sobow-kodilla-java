@@ -59,13 +59,13 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-        //    companyDao.delete(softwareMachineId);
-        //    companyDao.delete(dataMaestersId);
-        //    companyDao.delete(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
 
     @Test
@@ -78,6 +78,11 @@ public class CompanyDaoTestSuite {
 
         //When
         List<Employee> readEmployee = employeeDao.findByLastName("Smith");
+
+        for (Employee employee : readEmployee){
+            System.out.println("\n" + employee.getFirstName() + " " +
+                    employee.getLastName() + " pracownik \n");
+        }
 
         //Then
         Assert.assertEquals(1, readEmployee.size());

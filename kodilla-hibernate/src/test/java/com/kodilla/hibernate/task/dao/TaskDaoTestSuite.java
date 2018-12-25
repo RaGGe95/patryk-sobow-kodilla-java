@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class TaskDaoTestSuite {
     @Autowired
     private TaskDao taskDao;
@@ -77,12 +79,8 @@ public class TaskDaoTestSuite {
         //Assert.assertNotEquals(0, id);
 
         //CleanUp
-        /*
+
         taskDao.delete(task.getId());
 
-        taskFinancialDetailsDao.delete(tfd1.getId());
-        taskFinancialDetailsDao.delete(tfd2.getId());
-        taskFinancialDetailsDao.delete(tfd3.getId());
-        */
     }
 }

@@ -19,6 +19,13 @@ public class TaskFinancialDetails {
         this.paid = paid;
     }
 
+    @Override
+    public String toString() {
+        return "TaskFinancialDetails{" +
+                "id=" + id +
+                '}';
+    }
+
     @Id
     @GeneratedValue
     @NotNull
