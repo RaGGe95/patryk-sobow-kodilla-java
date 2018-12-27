@@ -13,7 +13,7 @@ public class Order {
     private Boolean isVerified = false;
     private Boolean isSubmitted = false;
 
-    public Order(ProductService productService, Long orderId, Long userId) {
+    public Order(Long orderId, Long userId, ProductService productService) {
         this.productService = productService;
         this.orderId = orderId;
         this.userId = userId;

@@ -7,7 +7,7 @@ import java.util.Random;
 @Service
 public class Authenticator {
     public Boolean isAuthenticated(Long userId) {
-        Random random = new Random();
-        return random.nextBoolean();
+        //Random random = new Random();
+        return true; //random.nextBoolean();
     }
 }
