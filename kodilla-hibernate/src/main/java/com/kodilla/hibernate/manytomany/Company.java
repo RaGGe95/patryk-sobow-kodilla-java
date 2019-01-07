@@ -4,14 +4,19 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+funkcja CONCAT łączy ze sobą stringi. symbol % oznacza: Dopasuj 0 lub więcej jakichkolwiek kolejnych znaków
+ */
+
 @NamedNativeQueries({
     @NamedNativeQuery(
-            name = "Company.findCompanyByThreeFirstLetters",
+            name = "Company.findByThreeFirstLetters",
             query = "SELECT * FROM COMPANIES WHERE :PIECE_OF_NAME = SUBSTRING(COMPANY_NAME, 1, 3)",
             resultClass = Company.class
     ),
     @NamedNativeQuery(
-            name = "Company.findCompanyByPartOfName",
+            name = "Company.findByPartOfName",
             query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT(:BEGINSWITH, '%')",
             resultClass = Company.class
     )
@@ -27,6 +32,14 @@ public class Company {
 
 
     private Company() {}
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 
     public Company(String name) {
         this.name = name;

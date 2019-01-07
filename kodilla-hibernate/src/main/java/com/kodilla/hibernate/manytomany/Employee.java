@@ -5,10 +5,20 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.findByLastName",
-        query = "FROM Employee WHERE lastName = :LASTNAME"
-)
+/*
+funkcja CONCAT łączy ze sobą stringi. symbol % oznacza: Dopasuj 0 lub więcej jakichkolwiek kolejnych znaków
+ */
+
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.findByLastName",
+                query = "FROM Employee WHERE lastName = :LASTNAME"
+        ),
+        @NamedQuery(
+                name = "Employee.findByPartOfName",
+                query = "FROM Employee WHERE firstName LIKE CONCAT(:BEGINSWITH, '%')"
+        )
+})
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -19,6 +29,14 @@ public class Employee {
     private String firstName;
     private String lastName;
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 
     private Employee() {}
 

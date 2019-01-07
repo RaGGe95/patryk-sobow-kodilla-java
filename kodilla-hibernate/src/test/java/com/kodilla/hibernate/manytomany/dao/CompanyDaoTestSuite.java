@@ -101,7 +101,7 @@ public class CompanyDaoTestSuite {
         companyDao.save(Arrays.asList(softwareMachine, dataMaesters, greyMatter));
 
         //When
-        List<Company> readCompany = companyDao.findCompanyByThreeFirstLetters("Dat");
+        List<Company> readCompany = companyDao.findByThreeFirstLetters("Dat");
 
         //Then
         Assert.assertEquals(1, readCompany.size());
@@ -119,7 +119,7 @@ public class CompanyDaoTestSuite {
         companyDao.save(Arrays.asList(softwareMachine, dataMaesters, greyMatter));
 
         //When
-        List<Company> readCompany = companyDao.findCompanyByPartOfName("Dat");
+        List<Company> readCompany = companyDao.findByPartOfName("Dat");
 
         //Then
         Assert.assertEquals(1, readCompany.size());
