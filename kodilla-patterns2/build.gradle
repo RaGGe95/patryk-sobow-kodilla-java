@@ -35,4 +35,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compile('org.projectlombok:lombok')
+
+    // AOP
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.2'
 }

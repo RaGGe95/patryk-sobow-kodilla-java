@@ -101,6 +101,10 @@ public class PizzaTestSuite {
     public void testBasicPizzaDeliverWithTankGetCost(){
         // Given
         PizzaOrder pizzaOrder = new BasicPizzaOrder();
+        pizzaOrder.getClass();
+
+        System.out.print(PizzaOrder.class);
+
         pizzaOrder = new DeliverByMilitaryTankDecorator(pizzaOrder);
 
         // When

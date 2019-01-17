@@ -3,6 +3,7 @@ package com.kodilla.patterns2.facade.api;
 import com.kodilla.patterns2.facade.ShopService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -10,7 +11,7 @@ import java.math.BigDecimal;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public final class OrderFacade {
+public class OrderFacade {
     private final ShopService shopService;
 
     public void processOrder(final OrderDto orderDto, final Long userId) throws OrderProcessingException {
